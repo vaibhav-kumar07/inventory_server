@@ -1,0 +1,41 @@
+# Base URL
+@baseUrl=http://localhost:6002/api/inventory
+@id=""
+### Create a New Inventory Item
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+    "serialNumber": 1,
+    "name": "Widget A",
+    "partNumber": "WGT-001",
+    "dateReceived": "2024-12-01",
+    "dateDispatched": "2024-12-10",
+    "balanceItems": 100,
+    "qrCode": "WIDGET-A-001"
+}
+
+### Get All Inventory Items
+GET {{baseUrl}}
+
+### Get a Specific Inventory Item by ID
+GET {{baseUrl}}/{{id}}
+
+# Replace `{{id}}` with the actual ID from a previous test, or get it from the database.
+
+### Update an Inventory Item
+PUT {{baseUrl}}/{{id}}
+Content-Type: application/json
+
+{
+    "name": "Widget A - Updated",
+    "balanceItems": 150,
+    "dateDispatched": "2024-12-12"
+}
+
+# Replace `{{id}}` with the actual ID.
+
+### Delete an Inventory Item
+DELETE {{baseUrl}}/{{id}}
+
+# Replace `{{id}}` with the actual ID.
